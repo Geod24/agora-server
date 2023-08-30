@@ -330,7 +330,7 @@ public struct TransactionBuilder
 
     ***************************************************************************/
 
-    public ref typeof(this) unlockSigner (Unlocker unlocker) return scope
+    public ref typeof(this) unlockSigner (Unlocker unlocker) scope return
         @safe nothrow @nogc pure
     {
         this.unlocker = unlocker;
@@ -353,7 +353,7 @@ public struct TransactionBuilder
 
     ***************************************************************************/
 
-    public ref typeof(this) payload (ubyte[] data) return scope
+    public ref typeof(this) payload (ubyte[] data) scope return
         @safe nothrow @nogc pure
     {
         this.data.payload = data;
@@ -367,7 +367,7 @@ public struct TransactionBuilder
 
     ***************************************************************************/
 
-    public ref typeof(this) lock (in Height height) return scope
+    public ref typeof(this) lock (in Height height) scope return
         @safe nothrow @nogc pure
     {
         this.data.lock_height = height;
@@ -382,7 +382,7 @@ public struct TransactionBuilder
 
     ***************************************************************************/
 
-    public ref typeof(this) feeRate (in Amount fee_rate) return scope
+    public ref typeof(this) feeRate (in Amount fee_rate) scope return
         @safe nothrow @nogc pure
     {
         this.fee_rate = fee_rate;

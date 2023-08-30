@@ -1647,7 +1647,7 @@ extern(D):
     }
 
     // Returns internal SCP state for latest slot
-    public string[] getSCPState () @trusted
+    extern(D) public string[] getSCPState () @trusted
     {
         import agora.utils.SCPPrettyPrinter;
         import std.conv;

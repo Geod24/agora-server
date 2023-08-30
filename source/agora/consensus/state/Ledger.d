@@ -186,7 +186,8 @@ public class Ledger
 
     ***************************************************************************/
 
-    public ref const(Block) lastBlock () const scope @safe @nogc nothrow pure
+    public ref const(Block) lastBlock () const return scope
+        @safe @nogc nothrow pure
     {
         return this.last_block;
     }
