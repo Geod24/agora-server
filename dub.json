@@ -43,19 +43,15 @@
             "targetName": "agora",
             "mainSourceFile": "source/agora/node/main.d",
             "debugVersions": [ "AgoraDebugAPIs" ],
+	    "preBuildCommands-posix": [
+		"make -e -f submodules/tracyd/Makefile"
+	    ],
+            "sourceFiles-posix": [
+                "build/TracyClient.o"
+            ],
             "excludedSourceFiles": [
                 "source/agora/cli/*"
             ]
-        },
-        {
-            "name": "traced-server",
-            "targetName": "agora-traced",
-            "mainSourceFile": "source/agora/node/main.d",
-            "debugVersions": [ "AgoraDebugAPIs" ],
-            "excludedSourceFiles": [ "source/agora/cli/*" ],
-            "dependencies": {
-                "tracyd": { "version": "*", "dflags" : [ "-preview=in", "-revert=dtorfields" ] }
-            }
         },
         {
             "name": "client",
@@ -175,6 +171,7 @@
         "libsodiumd":       { "version": "*", "dflags" : [ "-preview=in", "-revert=dtorfields" ] },
         "localrest":        { "version": "*", "dflags" : [ "-preview=in", "-revert=dtorfields" ] },
         "serialization":    { "version": "*", "dflags" : [ "-preview=in", "-revert=dtorfields" ] },
+        "tracyd":           { "version": "*", "dflags" : [ "-preview=in", "-revert=dtorfields" ] },
         "vibe-d":           { "version": "*", "dflags" : [ "-preview=in", "-revert=dtorfields" ] },
         "my-ip":            { "version": "*", "dflags" : [ "-preview=in", "-revert=dtorfields" ] }
     }

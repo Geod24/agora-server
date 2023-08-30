@@ -61,9 +61,12 @@
 [submodule "my-ip"]
 	path = submodules/my-ip
 	url = https://github.com/Kripth/my-ip.git
+[submodule "tracy"]
+	path = submodules/tracy
+	url = https://github.com/wolfpld/tracy.git
 [submodule "tracyd"]
 	path = submodules/tracyd
-	url = https://github.com/bosagora/tracyd.git
+	url = https://github.com/Geod24/tracyd.git
 [submodule "talos"]
 	path = talos
 	url = https://github.com/bosagora/talos.git
