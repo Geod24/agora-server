@@ -13,18 +13,19 @@
 		"eventcore": {"path":"submodules/eventcore/"},
 		"libasync": {"path":"submodules/libasync/"},
 		"libevent": {"path":"submodules/libevent/"},
-		"libsodiumd": {"path":"submodules/libsodiumd/"},
 		"libsodium-crypto": {"path":"submodules/crypto/"},
+		"libsodiumd": {"path":"submodules/libsodiumd/"},
 		"localrest": {"path":"submodules/localrest/"},
 		"mir-linux-kernel": {"path":"submodules/mir-linux-kernel/"},
+		"my-ip": {"path":"submodules/my-ip/"},
 		"openssl": {"path":"submodules/openssl/"},
+		"openssl-static": {"path":"submodules/openssl-static/"},
 		"serialization": {"path":"submodules/serialization/"},
 		"stdx-allocator": {"path":"submodules/stdx-allocator/"},
 		"taggedalgebraic": {"path":"submodules/taggedalgebraic/"},
 		"tinyendian": {"path":"submodules/tinyendian/"},
+		"tracyd": {"path":"submodules/tracyd/"},
 		"vibe-core": {"path":"submodules/vibe-core/"},
-		"vibe-d": {"path":"submodules/vibe.d/"},
-		"my-ip": {"path":"submodules/my-ip/"},
-		"tracyd": {"path":"submodules/tracyd/"}
+		"vibe-d": {"path":"submodules/vibe.d/"}
 	}
 }

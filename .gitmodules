@@ -12,7 +12,7 @@
 	url = https://github.com/dlang-community/D-YAML.git
 [submodule "eventcore"]
 	path = submodules/eventcore
-	url = https://github.com/bosagora/eventcore.git
+	url = https://github.com/vibe-d/eventcore.git
 [submodule "libsodiumd"]
 	path = submodules/libsodiumd
 	url = https://github.com/bosagora/libsodiumd.git
@@ -36,10 +36,10 @@
 	url = https://github.com/dlang-community/tinyendian.git
 [submodule "vibe-core"]
 	path = submodules/vibe-core
-	url = https://github.com/bosagora/vibe-core.git
+	url = https://github.com/vibe-d/vibe-core.git
 [submodule "vibe.d"]
 	path = submodules/vibe.d
-	url = https://github.com/bosagora/vibe.d.git
+	url = https://github.com/vibe-d/vibe.d.git
 [submodule "d2sqlite3"]
 	path = submodules/d2sqlite3
 	url = https://github.com/dlang-community/d2sqlite3.git
@@ -67,3 +67,6 @@
 [submodule "talos"]
 	path = talos
 	url = https://github.com/bosagora/talos.git
+[submodule "openssl-static"]
+	path = submodules/openssl-static
+	url = https://github.com/bildhuus/deimos-openssl-static.git
