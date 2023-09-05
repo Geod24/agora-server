@@ -217,7 +217,7 @@ public struct Output
 
     ***************************************************************************/
 
-    @property public PublicKey address () const pure nothrow @safe @nogc
+    @property public PublicKey address () const scope pure nothrow @safe @nogc
     {
         import agora.crypto.ECC;
 
@@ -233,7 +233,7 @@ public struct Output
     }
 
     /// Support for sorting
-    public int opCmp (in typeof(this) rhs) const nothrow @safe @nogc
+    public int opCmp (in typeof(this) rhs) const scope nothrow @safe @nogc
     {
         if (this.type != rhs.type)
             return this.type < rhs.type ? -1 : 1;
@@ -259,7 +259,7 @@ public struct Input
     public uint unlock_age = 0;
 
     /// The size of the Input object
-    public ulong sizeInBytes () const nothrow pure @safe @nogc
+    public ulong sizeInBytes () const scope nothrow pure @safe @nogc
     {
         return this.unlock.sizeInBytes() + this.unlock_age.sizeof + this.utxo.sizeof;
     }
@@ -310,7 +310,7 @@ public struct Input
     }
 
     /// Support for sorting
-    public int opCmp (in typeof(this) rhs) const nothrow @safe @nogc
+    public int opCmp (in typeof(this) rhs) const scope nothrow @safe @nogc
     {
         return this.utxo.opCmp(rhs.utxo);
     }
