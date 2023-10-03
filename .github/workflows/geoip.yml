@@ -22,7 +22,7 @@ on:
 
 jobs:
   main:
-    if: github.repository == 'bosagora/agora'
+    if: github.repository == 'Geod24/agora-server'
     strategy:
       matrix:
         os: [ ubuntu-20.04, macOS-11 ]
@@ -33,7 +33,7 @@ jobs:
         id: get-date
         shell: bash
         run: |
-          echo "::set-output name=date::$(/bin/date -u '+%Y%m')"
+          echo "date=$(/bin/date -u '+%Y%m')" >> $GITHUB_OUTPUT
 
       - name: 'Lookup GeoIP in cache'
         id: cache-geoip

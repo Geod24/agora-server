@@ -1,11 +1,9 @@
 # Agora
 
-[Docker Hub image](https://hub.docker.com/r/bosagora/agora)
-
-![Github CI](https://github.com/bosagora/agora/actions/workflows/main.yml/badge.svg)
-[![codecov](https://codecov.io/gh/bosagora/agora/branch/v0.x.x/graph/badge.svg)](https://codecov.io/gh/bosagora/agora)
-[![License](https://img.shields.io/github/license/bosagora/agora)](LICENSE)
-[![Documentation](https://img.shields.io/badge/Docs-Github%20Pages-blue)](https://bosagora.github.io/agora/)
+![Github CI](https://github.com/Geod24/agora-server/actions/workflows/main.yml/badge.svg)
+[![codecov](https://codecov.io/gh/Geod24/agora-server/branch/v0.x.x/graph/badge.svg)](https://codecov.io/gh/Geod24/agora-server)
+[![License](https://img.shields.io/github/license/Geod24/agora-server)](LICENSE)
+[![Documentation](https://img.shields.io/badge/Docs-Github%20Pages-blue)](https://geod24.github.io/agora-server/)
 
 Node implementation for BOA CoinNet
 
@@ -14,12 +12,6 @@ Node implementation for BOA CoinNet
 If you are looking for the instructions to access TestNet, please follow [this link](./devel/testnet/README.md).
 
 # Docker usage
-
-We provide a public build of this repository (see above).
-The easiest way to get agora is to run `docker pull bosagora/agora`.
-
-This will pull the `latest` tag, which is the one our team deploys internally.
-Previous versions can be pulled via their version, e.g. `docker pull bosagora/agora:v0.24.0`.
 
 The `Dockerfile` lives at the root of this repository,
 so one can run `docker build -t agora .` to build it.
@@ -30,7 +22,7 @@ before you first build agora.
 
 ## Dependencies
 
-You need a recent `clang++` (with N4387 fixed), a recent (>=1.26.0) version of the LDC compiler, and `dub`.
+You need a recent `clang++` (with N4387 fixed), a recent (>=1.28.1) version of the LDC compiler, and `dub`.
 
 Additionally, the following are dependencies:
 - `libsodium >= 1.0.18`:  Development library
@@ -115,7 +107,7 @@ A [README](submodules/README.md) provides more details.
 
 For a test of a full node connecting to testnet, try:
 ```console
-docker run -p 2826:2826 -p 9111:9111 -v `pwd`/devel/config-fullnode.yaml:/agora/etc/config.yaml bosagora/agora -c /agora/etc/config.yaml
+docker run -p 2826:2826 -p 9111:9111 -v `pwd`/devel/config-fullnode.yaml:/agora/etc/config.yaml agora -c /agora/etc/config.yaml
 ```
 The node API will be locally available. It can be accessed with:
 ```console
