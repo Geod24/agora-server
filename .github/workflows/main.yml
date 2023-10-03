@@ -42,7 +42,7 @@ jobs:
     steps:
 
     # Checkout this repository and its submodules
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         submodules: true
         persist-credentials: false

@@ -10,7 +10,7 @@ jobs:
     timeout-minutes: 30
     steps:
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         path: agora
         # For Codecov
@@ -28,7 +28,7 @@ jobs:
         sudo apt-get install libsodium-dev libsqlite3-dev clang
 
     - name: Checkout faucet
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         path: faucet
         repository: bosagora/faucet
