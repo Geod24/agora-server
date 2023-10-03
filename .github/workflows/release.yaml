@@ -88,7 +88,7 @@ jobs:
         run: |
           set -euox pipefail
           ls -aul ~ ~/artifacts
-          echo "::set-output name=artifacts_directory::$HOME/artifacts"
+          echo "artifacts_directory=$HOME/artifacts" >> $GITHUB_OUTPUT
 
       - name: Update release artifacts
         uses: ncipollo/release-action@v1
