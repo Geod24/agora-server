@@ -2,7 +2,7 @@
 # as this is where the artifacts will be visible.
 # To create a release, use the script `infrastructure/github/release.d`.
 #
-# There is no `repository == bosagora/agora` protection like in other CI scripts,
+# There is no `repository == Geod24/agora-server` protection like in other CI scripts,
 # as the artifacts are local to the repository, so there is no access issue,
 # and releases are not part of the synchronization of a fork with an upstream,
 # while commits and tags are, so creating a release in a fork is a deliberate action.
@@ -43,7 +43,7 @@ jobs:
         with:
           compiler: ${{ matrix.dc }}
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -61,7 +61,7 @@ jobs:
           mv -v build/agora-traced build/agora-traced-${{ github.event.release.tag_name }}+${{ matrix.triple }}
 
       - name: 'Upload temporary binaries'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: agora
           path: |
@@ -77,7 +77,7 @@ jobs:
 
     steps:
       - name: Download artifacts to release
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: agora
           path: ~/artifacts/

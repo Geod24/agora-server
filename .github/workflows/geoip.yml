@@ -8,7 +8,7 @@
 # outdated, so instead we cache it for the month.
 #
 # When a new month start, we need to download it, which can only happen
-# from the upstream repository (`bosagora/agora`), as otherwise secrets
+# from the upstream repository (`Geod24/agora-server`), as otherwise secrets
 # are not available. To remedy this problem, this action will trigger
 # one minute past midnight every first day of the month and re-download
 # the database.
@@ -37,7 +37,7 @@ jobs:
 
       - name: 'Lookup GeoIP in cache'
         id: cache-geoip
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/build/geoip/
           # Note: Cached data gets evicted after 7 days of being unused
