@@ -1,14 +1,15 @@
 # Build Agora from source
-FROM bosagora/agora-builder:latest AS Builder
-ARG DUB_OPTIONS
-ARG AGORA_STANDALONE
-ARG AGORA_VERSION="HEAD"
+FROM alpine:edge AS builder
+RUN apk --no-cache add build-base clang dtools dub git ldc libsodium-dev linux-headers llvm-libunwind-dev npm openssl-dev python3 sqlite-dev zlib-dev
 ADD . /root/agora/
+ARG AGORA_STANDALONE
 WORKDIR /root/agora/talos/
 RUN if [ -z ${AGORA_STANDALONE+x} ]; then npm ci && npm run build; else mkdir -p build; fi
 WORKDIR /root/agora/
 # Build Agora
-RUN AGORA_VERSION=${AGORA_VERSION} dub build --skip-registry=all --compiler=ldc2 ${DUB_OPTIONS}
+ARG DUB_OPTIONS
+ENV AGORA_VERSION="HEAD"
+RUN dub build --skip-registry=all --compiler=ldc2 ${DUB_OPTIONS}
 # Then build related utilities if not in standalone mode
 # Otherwise, copy the placeholder script as Dockerfile don't support conditional copy
 RUN if [ -z ${AGORA_STANDALONE+x} ]; then dub build --skip-registry=all --compiler=ldc2 -c client; \
@@ -19,17 +20,14 @@ RUN if [ -z ${AGORA_STANDALONE+x} ]; then dub build --skip-registry=all --compil
 # Runner
 # Uses edge as we need the same `ldc-runtime` as the LDC that compiled Agora,
 # and `bosagora/agora-builder:latest` uses edge.
-FROM alpine:3.15
+FROM alpine:edge
 # The following makes debugging Agora much easier on server
 # Since it's a tiny configuration file read by GDB at init, it won't affect release build
 COPY devel/dotgdbinit /root/.gdbinit
-COPY --from=Builder /root/packages/ /root/packages/
-RUN apk --no-cache add --allow-untrusted -X /root/packages/build/ ldc-runtime=1.28.1-r0 \
-    && rm -rf /root/packages/
-RUN apk --no-cache add llvm-libunwind libgcc libsodium libstdc++ sqlite-libs
-COPY --from=Builder /root/agora/talos/build/ /usr/share/agora/talos/
-COPY --from=Builder /root/agora/build/agora /usr/local/bin/agora
-COPY --from=Builder /root/agora/build/agora-client /usr/local/bin/agora-client
-COPY --from=Builder /root/agora/build/agora-config-dumper /usr/local/bin/agora-config-dumper
+RUN apk --no-cache add ldc-runtime llvm-libunwind libgcc libsodium libstdc++ sqlite-libs
+COPY --from=builder /root/agora/talos/build/ /usr/share/agora/talos/
+COPY --from=builder /root/agora/build/agora /usr/local/bin/agora
+COPY --from=builder /root/agora/build/agora-client /usr/local/bin/agora-client
+COPY --from=builder /root/agora/build/agora-config-dumper /usr/local/bin/agora-config-dumper
 WORKDIR /agora/
 ENTRYPOINT [ "/usr/local/bin/agora" ]

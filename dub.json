@@ -57,6 +57,9 @@
             "name": "client",
             "targetName": "agora-client",
             "mainSourceFile": "source/agora/cli/client/main.d",
+	    "preBuildCommands-posix": [
+		"make -e -f submodules/tracyd/Makefile"
+	    ],
             "excludedSourceFiles": [
                 "source/agora/api/Validator.d",
                 "source/agora/common/BanManager.d",
