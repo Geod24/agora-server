@@ -13,14 +13,14 @@ on: [push, pull_request]
 jobs:
   doc:
     name: Build and upload documentation
-    if: github.repository == 'bosagora/agora'
+    if: github.repository == 'Geod24/agora-server'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
 
       # Checkout this repository and its submodules
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -28,7 +28,7 @@ jobs:
       - name: Prepare compiler
         uses: dlang-community/setup-dlang@v1
         with:
-          compiler: ldc-1.28.1
+          compiler: ldc-latest
 
       - name: 'Install dependencies & setup environment'
         run: |
@@ -48,7 +48,7 @@ jobs:
           dub run ddox -- generate-html --file-name-style=lowerUnderscored docs.filtered.json ./docs/
 
       - name: Upload documentation artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: documentation
           path: docs/
