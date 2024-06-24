@@ -33,7 +33,7 @@ jobs:
         id: get-date
         shell: bash
         run: |
-          echo "::set-output name=date::$(/bin/date -u '+%Y%m')"
+          echo "date=$(/bin/date -u '+%Y%m')" >> $GITHUB_OUTPUT
 
       - name: 'Lookup GeoIP in cache'
         id: cache-geoip
