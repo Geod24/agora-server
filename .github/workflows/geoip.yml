@@ -22,7 +22,7 @@ on:
 
 jobs:
   main:
-    if: github.repository == 'bosagora/agora'
+    if: github.repository == 'Geod24/agora-server'
     strategy:
       matrix:
         os: [ ubuntu-20.04, macOS-11 ]
