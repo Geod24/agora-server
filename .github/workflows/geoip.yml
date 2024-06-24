@@ -25,7 +25,7 @@ jobs:
     if: github.repository == 'Geod24/agora-server'
     strategy:
       matrix:
-        os: [ ubuntu-20.04, macOS-11 ]
+        os: [ ubuntu-20.04, macOS-12 ]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
     steps:

@@ -24,8 +24,8 @@ jobs:
         ## TODO: Re-enable once memory usage while reducing Agora is reduced
         ## Currently it takes 7GB+ which OOM on the CI.
         ## See https://github.com/ldc-developers/ldc/issues/3702
-        # os: [ ubuntu-20.04, macOS-11, windows-2019 ]
-        os: [ ubuntu-20.04, macOS-11]
+        # os: [ ubuntu-20.04, macOS-12, windows-2019 ]
+        os: [ ubuntu-20.04, macOS-12]
         dc: [ ldc-1.28.1 ]
         # Define job-specific parameters
         include:
