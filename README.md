@@ -30,7 +30,7 @@ before you first build agora.
 
 ## Dependencies
 
-You need a recent `clang++` (with N4387 fixed), a recent (>=1.26.0) version of the LDC compiler, and `dub`.
+You need a recent `clang++` (with N4387 fixed), a recent (>=1.35.0) version of the LDC compiler, and `dub`.
 
 Additionally, the following are dependencies:
 - `libsodium >= 1.0.18`:  Development library
@@ -61,9 +61,9 @@ On older distributions (e.g. Ubuntu 18.04), `libsodium` might not be at version 
 #
 # Then, install the LDC compiler (you might want to use a newer version)
 # This will also install dub, the D package manager / build tool
-curl https://dlang.org/install.sh | bash -s ldc-1.28.1
+curl https://dlang.org/install.sh | bash -s ldc-1.38.0
 # Add LDC to the $PATH
-source ~/dlang/ldc-1.28.1/activate
+source ~/dlang/ldc-1.38.0/activate
 # Clone this repository
 git clone https://github.com/bosagora/agora.git
 # Use the git root as working directory
