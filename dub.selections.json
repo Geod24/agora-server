@@ -13,7 +13,7 @@
 		"eventcore": {"path":"submodules/eventcore/"},
 		"libasync": {"path":"submodules/libasync/"},
 		"libevent": {"path":"submodules/libevent/"},
-		"libsodium-crypto": {"path":"submodules/crypto/"},
+		"libsodium-crypto": {"path":"submodules/libsodium-crypto/"},
 		"libsodiumd": {"path":"submodules/libsodiumd/"},
 		"localrest": {"path":"submodules/localrest/"},
 		"mir-linux-kernel": {"path":"submodules/mir-linux-kernel/"},

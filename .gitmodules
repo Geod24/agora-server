@@ -47,7 +47,7 @@
 	path = submodules/barcode
 	url = https://github.com/deviator/barcode.git
 [submodule "crypto"]
-	path = submodules/crypto
+	path = submodules/libsodium-crypto
 	url = https://github.com/Geod24/libsodium-crypto.git
 [submodule "serialization"]
 	path = submodules/serialization
