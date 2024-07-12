@@ -1107,10 +1107,10 @@ unittest
     storage.put(prev_tx);
 
     Lock[LockType] locks;
-    locks[LockType.Key] = Lock(LockType.Key, PublicKey.init[]);
-    locks[LockType.KeyHash] = Lock(LockType.KeyHash, hashFull(kp.address)[]);
+    locks[LockType.Key] = Lock(LockType.Key, PublicKey.init[].dup);
+    locks[LockType.KeyHash] = Lock(LockType.KeyHash, hashFull(kp.address)[].dup);
     locks[LockType.Script] = Lock(LockType.Script, [OP.TRUE]);
-    locks[LockType.Redeem] = Lock(LockType.Redeem, hashFull("script")[]);
+    locks[LockType.Redeem] = Lock(LockType.Redeem, hashFull("script")[].dup);
 
     foreach(locktype; EnumMembers!LockType)
     {
