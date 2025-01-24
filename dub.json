@@ -32,9 +32,9 @@
 
     "toolchainRequirements": {
         "dub": "~>1.25",
-	"dmd": "no",
-	"gdc": "no",
-	"ldc": ">=1.28.1"
+	      "dmd": "no",
+	      "gdc": "no",
+	      "ldc": ">=1.28.1"
     },
 
     "configurations": [
@@ -43,9 +43,9 @@
             "targetName": "agora",
             "mainSourceFile": "source/agora/node/main.d",
             "debugVersions": [ "AgoraDebugAPIs" ],
-	    "preBuildCommands-posix": [
-		"make -e -f submodules/tracyd/Makefile"
-	    ],
+	          "preBuildCommands-posix": [
+		            "make -e -f submodules/tracyd/Makefile"
+	          ],
             "sourceFiles-posix": [
                 "build/TracyClient.o"
             ],
@@ -57,9 +57,9 @@
             "name": "client",
             "targetName": "agora-client",
             "mainSourceFile": "source/agora/cli/client/main.d",
-	    "preBuildCommands-posix": [
-		"make -e -f submodules/tracyd/Makefile"
-	    ],
+	          "preBuildCommands-posix": [
+		            "make -e -f submodules/tracyd/Makefile"
+	          ],
             "excludedSourceFiles": [
                 "source/agora/api/Validator.d",
                 "source/agora/common/BanManager.d",
