@@ -36,7 +36,7 @@ jobs:
         ## Currently it takes 7GB+ which OOM on the CI.
         ## See https://github.com/ldc-developers/ldc/issues/3702
         # os: [ ubuntu-20.04, macOS-12, windows-2019 ]
-        os: [ ubuntu-20.04, macOS-12]
+        os: [ ubuntu-22.04, macOS-14]
         dc: [ ldc-1.38.0 ]
         # Define job-specific parameters
         include:
