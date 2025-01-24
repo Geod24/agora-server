@@ -39,7 +39,7 @@ private int main (string[] args)
         return 1;
     const Args = [compiler, "-i", "-vcolumns" ] ~
         args[(args.length >= 2) + 1 .. $] ~
-        "--d-version=Have_vibe_core" ~ "--preview=in" ~ "--preview=intpromote" ~
+        "--d-version=Have_vibe_core" ~ "--preview=in" ~
         importPaths.map!(v => "-I" ~ v).array ~
         lflags.map!(v => "-L" ~ v).array;
 
