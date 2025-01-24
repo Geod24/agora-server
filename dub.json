@@ -14,8 +14,12 @@
         "$DUB --verbose --single scripts/version_gen.d || (sleep 5s && $DUB --verbose --single scripts/version_gen.d)",
         "$DUB --verbose --single source/scpp/build.d || (sleep 5s && $DUB --verbose --single source/scpp/build.d)"
     ],
+	  "preBuildCommands-posix": [
+		    "make -e -f submodules/tracyd/Makefile"
+	  ],
     "sourceFiles-posix": [
-        "source/scpp/build/*.o"
+        "source/scpp/build/*.o",
+        "build/TracyClient.o",
     ],
     "sourceFiles-windows": [
         "source/scpp/build/*.obj"
@@ -43,9 +47,6 @@
             "targetName": "agora",
             "mainSourceFile": "source/agora/node/main.d",
             "debugVersions": [ "AgoraDebugAPIs" ],
-	          "preBuildCommands-posix": [
-		            "make -e -f submodules/tracyd/Makefile"
-	          ],
             "sourceFiles-posix": [
                 "build/TracyClient.o"
             ],
@@ -57,9 +58,6 @@
             "name": "client",
             "targetName": "agora-client",
             "mainSourceFile": "source/agora/cli/client/main.d",
-	          "preBuildCommands-posix": [
-		            "make -e -f submodules/tracyd/Makefile"
-	          ],
             "excludedSourceFiles": [
                 "source/agora/api/Validator.d",
                 "source/agora/common/BanManager.d",
@@ -98,7 +96,6 @@
                 "source/scpp/build/DSizeChecks.obj",
                 "source/scpp/build/DLayoutChecks.obj"
             ],
-            "dflags": [ "-checkaction=context" ],
             "dflags-ldc": [ "--link-defaultlib-debug" ],
         },
         {
